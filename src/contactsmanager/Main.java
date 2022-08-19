@@ -60,12 +60,13 @@ public class Main {
         } else if(userInput == 4) {
             promptDeleteContact(list);
         } else if(userInput == 5) {
-
+            Gateway.writeToFile(list);
             System.exit(0);
         } else {
             System.out.println("That is not a valid option.");
             displayMainMenu(list);
         }
+        displayMainMenu(list);
     }
 
 }
