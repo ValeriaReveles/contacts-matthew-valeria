@@ -7,27 +7,35 @@ public class Main {
     public static final String ANSI_YELLOW = "\u001B[33m";
 
     public static void main(String[] args)  {
-        Input.darkDaddy();
         ContactList list = Gateway.readFromFile();
         displayMainMenu(list);
     }
     public static void displayMainMenu(ContactList list) {
         Input input = new Input();
-        processUserInput(input.getInt(ANSI_YELLOW + """
-                ------------------------------------
-                 WELCOME TO THE CONTACTS MANAGER!
-                 Please select an option!
-                ------------------------------------
-                Menu:   
-                
-                1. View contacts.
-                2. Add a new contact.
-                3. Search for contact by name.
-                4. Delete an existing contact.
-                5. Exit.
-                
-                ---------------------------------------
-                """ + ANSI_RESET), list);
+        processUserInput(input.getInt(ANSI_YELLOW +                 """
+                                               .-.                  ---------------------------------------
+                                              |_:_|                 ---------------------------------------
+                                             /(_Y_)\\                  WELCOME TO THE CONTACTS MANAGER!
+                        .                   ( \\/M\\/ )                 Please select an option!
+                         '.               _.'-/'-'\\-'._             ---------------------------------------
+                           ':           _/.--'[[[[]'--.\\_              Menu:
+                             ':        /_'  : |::"| :  '.\\             1. View contacts.
+                               ':     /:   ./ |oUU| \\.'  :\\            2. Add a new contact.
+                                 ':  _:'..' \\_|___|_/ :   :|           3. Search for contact by name.
+                                   ':.  .'  |_[___]_|  :.':\\           4. Delete an existing contact.
+                                    [::\\ |  :  | |  :   ; : \\          5. Exit.
+                                     '-'   \\/'.| |.' \\  .;.' |      ---------------------------------------
+                                     |\\_    \\  '-'   :       |
+                                     |  \\    \\ .:    :   |   |
+                                     |   \\    | '.   :    \\  |
+                                     /       \\   :. .;       |
+                                    /     |   |  :__/     :  \\\\
+                                   |  |   |    \\:   | \\   |   ||
+                                  /    \\  : :  |:   /  |__|   /|
+                                  |     : : :_/_|  /'._\\  '--|_\\
+                                  /___.-/_|-'   \\  \\
+                                                 '-' 
+                        """ + ANSI_RESET), list);
     }
     public static void promptAddContact(ContactList list) {
         Input input = new Input();
