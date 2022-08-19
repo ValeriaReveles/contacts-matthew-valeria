@@ -7,6 +7,7 @@ public class Main {
     public static final String ANSI_YELLOW = "\u001B[33m";
 
     public static void main(String[] args)  {
+        Input.darkDaddy();
         ContactList list = Gateway.readFromFile();
         displayMainMenu(list);
     }
