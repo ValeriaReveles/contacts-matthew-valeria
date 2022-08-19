@@ -14,7 +14,11 @@ public class ContactList {
         contactList.add(contact);
     }
 
-        public void removeContact(String name) {
+    public void removeContact(String name) {
+        int index = getIndexByName(name);
+        if(index > -1) {
+            contactList.remove(index);
+        }
     }
     public ArrayList<Contact> queryContactsByPartial(String query) {
         ArrayList<Contact> result = new ArrayList<>();
