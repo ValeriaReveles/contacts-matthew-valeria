@@ -64,12 +64,12 @@ public class Gateway {
                 Path folder = Paths.get("contact_list");
                 Path file = Paths.get("contact_list", "contacts.txt");
                 if (Files.exists(folder)) {
-                    System.out.println("Folder already exists!");
+                    System.out.println("Update Successful.");
                 } else {
                     Files.createDirectories(folder);
                 }
                 if (Files.exists(file)) {
-                    System.out.println("Hey the file already exists!");
+                    System.out.println("File successfully created.");
                 } else {
                     Files.createFile(file);
                 }
