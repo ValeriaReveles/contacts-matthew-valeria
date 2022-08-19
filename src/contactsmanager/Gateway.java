@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.Files;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Gateway {
@@ -21,11 +20,11 @@ public class Gateway {
 
         List<String> contactStrings = contactList.toStringList();
 
-        writeItemStringsToFilePath(filePath, contactStrings);
+        writeContactStringsToFilePath(filePath, contactStrings);
 
     }
 
-    private static void writeItemStringsToFilePath(Path filePath, List<String> contactStrings) {
+    public static void writeContactStringsToFilePath(Path filePath, List<String> contactStrings) {
         try {
             Files.write(filePath, contactStrings);
         } catch (IOException e) {
@@ -42,7 +41,7 @@ public class Gateway {
             return list;
         }
 
-        List<String> contactStrings = readItemStringsFromFilePath(filePath);
+        List<String> contactStrings = readContactStringsFromFilePath(filePath);
 
         for (String contactString : contactStrings) {
             Contact contactItem = Contact.fromString(contactString);
@@ -51,7 +50,7 @@ public class Gateway {
         return list;
     }
 
-    private static List<String> readItemStringsFromFilePath(Path filePath) {
+    private static List<String> readContactStringsFromFilePath(Path filePath) {
         try {
             return Files.readAllLines(filePath);
         } catch (IOException e) {
@@ -60,7 +59,7 @@ public class Gateway {
     }
 
 
-        private static Path getFilePath() {
+        static Path getFilePath() {
             try {
                 Path folder = Paths.get("contact_list");
                 Path file = Paths.get("contact_list", "contacts.txt");
