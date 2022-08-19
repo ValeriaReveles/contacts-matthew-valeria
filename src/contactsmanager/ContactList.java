@@ -1,6 +1,7 @@
 package contactsmanager;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ContactList {
     private ArrayList<Contact> contactList;
@@ -13,8 +14,8 @@ public class ContactList {
         contactList.add(contact);
     }
 
-    //    public void removeContact(String name) {
-//    }
+        public void removeContact(String name) {
+    }
     public ArrayList<Contact> queryContactsByPartial(String query) {
         ArrayList<Contact> result = new ArrayList<>();
         for(int i = 0; i < contactList.size(); i++) {
@@ -31,6 +32,11 @@ public class ContactList {
             System.out.println("\t" + contact);
         }
     }
+    public void printContacts(int index) {
+        System.out.println("Search Results:");
+        System.out.println("\t" + contactList.get(index));
+    }
+
     public void printContacts(ArrayList<Contact> results) {
         System.out.println("Search Results:");
         for(Contact contact : results) {
@@ -51,5 +57,13 @@ public class ContactList {
     public void displaySearchResults (String query){
         System.out.println(queryContactsByPartial(query));
         // TODO: 8/19/22 add prompt to return to main menu
+    }
+
+    public List<String> toStringList() {
+        List<String> contactStrings = new ArrayList<>();
+        for(Contact contact : contactList) {
+            contactStrings.add(contact.toString());
+        }
+        return contactStrings;
     }
 }
