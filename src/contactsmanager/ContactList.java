@@ -2,6 +2,7 @@ package contactsmanager;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class ContactList {
     private ArrayList<Contact> contactList;
@@ -23,7 +24,7 @@ public class ContactList {
     public ArrayList<Contact> queryContactsByPartial(String query) {
         ArrayList<Contact> result = new ArrayList<>();
         for(int i = 0; i < contactList.size(); i++) {
-            String name = contactList.get(i).getName();
+            String name = contactList.get(i).getName().toLowerCase(Locale.ROOT);
             if (name.contains(query)) {
                 result.add(contactList.get(i));
             }
@@ -59,8 +60,9 @@ public class ContactList {
         return index;
     }
     public void displaySearchResults (String query){
-        System.out.println(queryContactsByPartial(query));
+        printContacts(queryContactsByPartial(query));
         // TODO: 8/19/22 add prompt to return to main menu
+
     }
 
     public List<String> toStringList() {
