@@ -19,6 +19,9 @@ public class ContactList {
         int index = getIndexByName(name);
         if(index > -1) {
             contactList.remove(index);
+            System.out.println("Contact removed.");
+        } else {
+            System.out.println("That contact doesn't exist.");
         }
     }
     public ArrayList<Contact> queryContactsByPartial(String query) {
@@ -36,10 +39,6 @@ public class ContactList {
         for(Contact contact : contactList) {
             System.out.println("\t" + contact);
         }
-    }
-    public void printContacts(int index) {
-        System.out.println("Search Results:");
-        System.out.println("\t" + contactList.get(index));
     }
 
     public void printContacts(ArrayList<Contact> results) {
@@ -61,7 +60,6 @@ public class ContactList {
     }
     public void displaySearchResults (String query){
         printContacts(queryContactsByPartial(query));
-        // TODO: 8/19/22 add prompt to return to main menu
 
     }
 

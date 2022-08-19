@@ -2,10 +2,6 @@ package contactsmanager;
 
 import util.Input;
 
-import java.io.IOException;
-import java.util.ArrayList;
-
-
 public class Main {
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_YELLOW = "\u001B[33m";
@@ -34,19 +30,20 @@ public class Main {
     }
     public static void promptAddContact(ContactList list) {
         Input input = new Input();
-        String name = input.getString("Enter name of new contact: ");
-        Long number = input.getLong("Enter phone number of new contact: ");
+        String name = input.getString("Enter name of new contact:\t");
+        Long number = input.getLong("Enter phone number of new contact:\t");
         Contact contact = new Contact(name, number);
         list.addContact(contact);
     }
     public static void promptSearchContact(ContactList list) {
         Input input = new Input();
-        String query = input.getString("Enter name of contact.");
+        String query = input.getString("Enter name of contact:\t");
         list.displaySearchResults(query);
     }
     public static void promptDeleteContact(ContactList list) {
         Input input = new Input();
-        String name = input.getString();
+        String name = input.getString("Enter name of contact to delete:\t");
+        list.removeContact(name);
     }
 
     public static void processUserInput(int userInput, ContactList list) {
