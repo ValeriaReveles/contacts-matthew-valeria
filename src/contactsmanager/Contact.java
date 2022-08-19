@@ -19,10 +19,10 @@ public class Contact {
 
     @Override
     public String toString() {
-        return name + " | " + phoneNumber;
+        return name + ":" + phoneNumber;
     }
     public static Contact fromString(String contactString) {
-        String[] parts = contactString.split(" | ");
+        String[] parts = contactString.split(":");
         return new Contact(parts[0], Long.parseLong(parts[1]));
     }
 }
